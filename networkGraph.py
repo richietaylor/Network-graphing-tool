@@ -3,21 +3,28 @@ from pyvis.network import Network
 import csv
 import random
 
+# Settings for users to change
 directed = True
 bgcolor = "white"
 font_color = "black"
+fileName = input("Filename:")
 
 
+# Declaring Graph Object
 net = Network(notebook=True,
-              cdn_resources="remote",
+              cdn_resources="local",
               directed=directed,
               bgcolor=bgcolor,
               font_color=font_color
               )
 
+"""
+Colour generator - takes in a colour and outputs a shade close to that colour
+"""
+
 
 def random_hex_color(colour):
-    # Python dict
+    # @TODO Add more colours
     colours = {
         # blue
         "1": [0, 120, 100, 220, 210, 255],
@@ -34,8 +41,10 @@ def random_hex_color(colour):
     return "#{0:02x}{1:02x}{2:02x}".format(red, green, blue)
 
 
-#fileName = input("Enter a filename: ")
-fileName = "links (version 1).csv"
+"""
+Read in csv file and populate the graph
+
+"""
 with open(fileName, 'r') as file:
     csvReader = csv.reader(file)
 
@@ -62,19 +71,11 @@ with open(fileName, 'r') as file:
         net.add_edge(listNodes.index(row[0][1:]),
                      listNodes.index(row[1][1:]), width=width, smooth=False, color="black")
 
-
+"""
+Resize nodes
+"""
 for node in net.nodes:
     edges = len(net.get_adj_list()[node['id']])
     node['size'] = edges * 4 + 1 + directed * 3
-    print(node["label"], "has", edges, "edges")
 
-
-'''
-net.set_options("""
-    var options = {
-      "directed": true
-    }
-""")
-'''
-# net.show_buttons(filter_=['edges'])
 net.show("nodes.html")
