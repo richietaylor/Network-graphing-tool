@@ -7,7 +7,10 @@ import random
 directed = False
 bgcolor = "white"
 font_color = "black"
-fileName = input("Filename:")
+fileName = input("Filename: ")
+dir = input("Directed? [y/n]: ")
+if dir == "y":
+    directed = True
 
 
 # Declaring Graph Object
@@ -78,4 +81,7 @@ for node in net.nodes:
     edges = len(net.get_adj_list()[node['id']])
     node['size'] = edges * 4 + 1 + directed * 3
 
+# Draw Graph
 net.show("nodes.html")
+
+print("Success! - Check this folder for HTML file!")
