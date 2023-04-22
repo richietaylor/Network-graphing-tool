@@ -4,7 +4,7 @@ import csv
 import random
 
 # Settings for users to change
-directed = True
+directed = False
 bgcolor = "white"
 font_color = "black"
 fileName = input("Filename:")
