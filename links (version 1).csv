@@ -1,31 +1,32 @@
-﻿comfortable living environment,productive learning,,,,,,comfortable living environment
-comfortable living environment,mental well being,,,,,,passive design
-comfortable living environment,co operation with peers,,,,,,mental well being
-finance,comfortable living environment,,,,,,co operation with peers
-passive design,comfortable living environment,,,,,,appreciation for natural enviromental systems
-productive learning,real world application of knowledge,,,,,,productive learning
-mental well being,productive learning,,,,,,real-world application knowledge
-co operation with peers,productive learning,,,,,,food garden
-appreciation for natural enviromental systems,productive learning,,,,,,spreading knowledge to own community
-passive design,appreciation for natural enviromental systems,,,,,,potential own economic income
-real world application of knowledge,appreciation for natural enviromental systems,,,,,,empowerment of greater community
-real world application of knowledge,potential own economic income,,,,,,finance 
-real world application of knowledge,spreading knowledge to own community,,,,,,environmental impact
-food garden,potential own economic income,,,,,,materials
-food garden,appreciation for natural enviromental systems,,,,,,builders
-food garden,potential own economic income,,,,,,
-spreading knowledge to own community,empowerment of greater community,,,,,,
-real world application of knowledge,food garden,,,,,,
-passive design,finance,,,,,,
-environmental impact,comfortable living environment,,,,,,
-environmental impact,materials,,,,,,
-environmental impact,passive design,,,,,,
-environmental impact,finance,,,,,,
-materials,environmental impact,,,,,,
-materials,comfortable living environment,,,,,,
-finance,materials,,,,,,
-finance,builders,,,,,,
-builders,comfortable living environment,,,,,,
-builders,real world application of knowledge,,,,,,
-builders,spreading knowledge to own community,,,,,,
-empowerment of greater community,environmental impact,,,,,,
+﻿Connections,,weight
+1comfortable living environment,2productive learning,
+1comfortable living environment,2mental well being,
+1comfortable living environment,2co operation with peers,
+2finance,1comfortable living environment,
+1passive design,1comfortable living environment,
+2productive learning,1real world application of knowledge,
+2mental well being,2productive learning,
+2co operation with peers,2productive learning,
+2appreciation for natural enviromental systems,2productive learning,
+1passive design,2appreciation for natural enviromental systems,
+1real world application of knowledge,2appreciation for natural enviromental systems,
+1real world application of knowledge,2potential own economic income,
+1real world application of knowledge,2spreading knowledge to own community,
+1food garden,2potential own economic income,
+1food garden,2appreciation for natural enviromental systems,
+1food garden,2potential own economic income,
+2spreading knowledge to own community,2empowerment of greater community,
+1real world application of knowledge,1food garden,
+1passive design,2finance,
+1environmental impact,1comfortable living environment,
+1environmental impact,1materials,
+1environmental impact,1passive design,
+1environmental impact,2finance,
+1materials,1environmental impact,
+1materials,1comfortable living environment,
+2finance,1materials,
+2finance,1builders,
+1builders,1comfortable living environment,
+1builders,1real world application of knowledge,
+1builders,2spreading knowledge to own community,
+2empowerment of greater community,1environmental impact,

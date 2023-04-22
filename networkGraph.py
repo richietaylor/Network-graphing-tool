@@ -3,21 +3,30 @@ from pyvis.network import Network
 import csv
 import random
 
+directed = True
+bgcolor = "white"
+font_color = "black"
+
+
 net = Network(notebook=True,
               cdn_resources="remote",
-              # directed=True,
-              bgcolor="white",
-              font_color="black"
+              directed=directed,
+              bgcolor=bgcolor,
+              font_color=font_color
               )
 
 
 def random_hex_color(colour):
     # Python dict
     colours = {
-        "blue": [0, 150, 100, 220, 210, 255],
-        "orange": [245, 255, 100, 180, 0, 10],
-        "green": [0, 60, 110, 255, 0, 70],
-        "red": [180, 255, 0, 60, 0, 90]
+        # blue
+        "1": [0, 120, 100, 220, 210, 255],
+        # orange
+        "2": [245, 255, 100, 180, 0, 10],
+        # green
+        "3": [0, 60, 110, 255, 0, 70],
+        # red
+        "4": [180, 255, 0, 60, 0, 90]
     }
     red = random.randint(colours[colour][0], colours[colour][1])
     green = random.randint(colours[colour][2], colours[colour][3])
@@ -32,34 +41,40 @@ with open(fileName, 'r') as file:
 
     listNodes = []
     count = True
+
     for row in csvReader:
+        width = 0.1
+        if row[2] != "":
+            width = row[2]
+
         if count:
             count = False
             continue
-        if row[0] not in listNodes:
-            listNodes.append(row[0])
+        if row[0][1:] not in listNodes:
+            listNodes.append(row[0][1:])
             net.add_node(listNodes.index(
-                row[0]), label=row[0], physics=False, color=random_hex_color("orange"))
-        if row[1] not in listNodes:
-            listNodes.append(row[1])
+                row[0][1:]), label=row[0][1:], physics=False, color=random_hex_color(row[0][0]))
+        if row[1][1:] not in listNodes:
+            listNodes.append(row[1][1:])
             net.add_node(listNodes.index(
-                row[1]), label=row[1], physics=False, color=random_hex_color("red"))
+                row[1][1:]), label=row[1][1:], physics=False, color=random_hex_color(row[1][0]))
 
-        net.add_edge(listNodes.index(row[0]),
-                     listNodes.index(row[1]), width=0.1, smooth=False, color="black")
+        net.add_edge(listNodes.index(row[0][1:]),
+                     listNodes.index(row[1][1:]), width=width, smooth=False, color="black")
 
 
 for node in net.nodes:
     edges = len(net.get_adj_list()[node['id']])
-    node['size'] = edges * 4 + 1
+    node['size'] = edges * 4 + 1 + directed * 3
     print(node["label"], "has", edges, "edges")
 
+
+'''
 net.set_options("""
     var options = {
       "directed": true
     }
 """)
-
-print(random_hex_color("blue"))
+'''
 # net.show_buttons(filter_=['edges'])
 net.show("nodes.html")
